@@ -1,0 +1,41 @@
+Project Planning
+
+
+Team: Joseph Aversa, Henock Belay, Hatim Joubair, Nahom Zena
+
+
+Schedule Priority:
+	Create synchronized database with same parameters and tables
+	filter and search for transactions by querying with user and account (utilizing angular routing)
+	create account page
+	deposit and withdrawl
+
+Possible features:
+	add transfer between accounts
+	filter for search transaction
+	graph showing expense patterns
+
+Tables representing our data:
+
+create table user {
+	userId:number primary key;
+	firstName:string;
+	lastName:string;
+	email:string;
+	password:string;
+}
+
+create table account {
+	accountNumber:number primary key, foreign key;
+	userId:number foreign key;
+	accountType: string;		->(checking or savings)
+	balance: BigDecimal 		->(maybe);
+}
+
+create table transaction{
+	transactionId: number primary key;
+	accountNumber:number foreign key;
+	timeStamp: string 			->(generated from LocalDay)
+	transactionAmount: BigDecimal 	->(positve or negative)
+}
+	
